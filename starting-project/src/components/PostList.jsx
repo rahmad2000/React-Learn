@@ -6,7 +6,7 @@ import classes from './PostList.module.css'
 
 
 
-function PostList({postIsVisible, onStopPosting}) {
+function PostList({postIsVisible, onStopPosting,}) {
     const [enterBody, setEnterBody] = useState('');
     const [enterAuthor, setEnterAuthor] = useState('');
 
@@ -24,7 +24,9 @@ function PostList({postIsVisible, onStopPosting}) {
             <Modal onClose = {onStopPosting}>
                 <NewPost
                     onBodyChange={bodyChangeHandler}
-                    onAuthorChange={authorChangeHandler}>
+                    onAuthorChange={authorChangeHandler}
+                    onCancel = {onStopPosting}
+                >
                 </NewPost>
             </Modal>
             ) : false}
