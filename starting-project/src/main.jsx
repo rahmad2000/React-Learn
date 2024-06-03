@@ -19,7 +19,7 @@ const router = createBrowserRouter([
           {
             path: '/create-post',
             element: <NewPost></NewPost>,
-            action: () => {}
+            action: newPostAction
           }
         ]
       },
