@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import Posts, { loader as postsloader} from './routes/Posts';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './routes/RootLayout'
 import NewPost from './routes/NewPost'
-import Posts from './routes/Posts'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +14,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Posts></Posts>,
+        loader: postsloader,
         children: [
           {
             path: '/create-post',
