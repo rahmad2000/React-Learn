@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import Post from './Post';
-import NewPost from './NewPost';
-import Modal from './Modal';
 import classes from './PostList.module.css'
 import { CgEnter } from 'react-icons/cg';
 
 
 
-function PostList({ postIsVisible, onStopPosting, }) {
+function PostList() {
     const [posts, setPosts] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
 
@@ -35,15 +33,6 @@ function addPostHandler(postData) {
 }
 return (
     <>
-        {postIsVisible ? (
-            <Modal onClose={onStopPosting}>
-                <NewPost
-                    onCancel={onStopPosting}
-                    onAddPost={addPostHandler}
-                >
-                </NewPost>
-            </Modal>
-        ) : false}
         {!isFetching && posts.length > 0 && (
             <ul className={classes.posts}>
                 {posts.map((post) => <Post key={post.body} author={post.author} body={post.body}></Post>)}
